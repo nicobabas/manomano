@@ -3,13 +3,19 @@
     position: absolute;
     display: flex;
     flex-direction: column;
-    top: 0;
-    right: 0;
+    top: 5px;
+    right: 10px;
     opacity: 0;
 }
 .categories-image{
     width: 100%;
 }
+.categories_presentation {
+    margin-bottom: 1rem;
+    border: solid rgba(0, 0, 0, 0.2) 1px;
+    border-radius: 10px;
+    padding: 5px;
+  }
 .categories_h3{
     font-size: 1rem;
     color: #0C193A;

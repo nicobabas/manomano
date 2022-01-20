@@ -23,12 +23,12 @@ const Recherche = () => {
         </div>
         <h2 className="recherche_h2">Vous avez selectionné un lavabo ?</h2>
         <div className="recherche_selection">
-          <button className="recherche-button" onClick={() => setCatOn(!catOn)}>
+          <button className="recherche-button" onClick={() => { setCatOn(!catOn); setSearchOn(true) }}>
             Rechercher un produit similaire
           </button>
           <button
             className="recherche-button"
-            onClick={() => { setTutosOn(!tutosOn); setSearchOn(!searchOn) }}
+            onClick={() => { setTutosOn(!tutosOn); setSearchOn(true) }}
           >
             Besoin d'un tutoriel <br />
             ou un conseil ?
@@ -36,7 +36,7 @@ const Recherche = () => {
         </div>
       </div>
       <Tutos setTutosOn={setTutosOn} tutosOn={tutosOn} setSearchOn={setSearchOn} searchOn={searchOn} />
-      <Categories catOn={catOn} />
+      <Categories setCatOn={setCatOn} catOn={catOn} setSearchOn={setSearchOn} searchOn={searchOn} />
     </>
   );
 };
