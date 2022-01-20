@@ -1,7 +1,6 @@
 import "./App.css";
 import Recherche from "./components/Recherche/Recherche";
 import Categories from "./components/Categories/Categories";
-import ProductList from "./components/ProductList/ProductList";
 import Tutos from "./components/tuto/Tuto";
 import React, { useRef, useState, useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
@@ -10,6 +9,7 @@ import * as cocossd from "@tensorflow-models/coco-ssd";
 import Webcam from "react-webcam";
 import "./components/Camera/camera.css";
 import { drawRect } from "./components/Camera/utilities";
+import ProductListLavabo from "./components/ProductListLavabo/ProductListLavabo.jsx"
 import CameraContext from "./contexts/CameraContext";
 import HandleclickContext from "./contexts/HandleclickContext";
 
@@ -105,12 +105,13 @@ const App = () => {
           <Recherche />
           <Router>
             <Routes>
-              <Route exact path="/products" element={<ProductList />} />
+              <Route exact path="/products" element={<ProductListLavabo />} />
             </Routes>
           </Router>
         </HandleclickContext.Provider>
       </CameraContext.Provider>
     </div>
+
   );
 };
 
