@@ -111,7 +111,6 @@ const App = () => {
         </HandleclickContext.Provider>
       </CameraContext.Provider>
     </div>
-
   );
 };
 
