@@ -1,3 +1,5 @@
 import { createContext } from 'react';
 
-export const CameraContext = createContext({});
+const CameraContext = createContext({});
+
+export default CameraContext;
