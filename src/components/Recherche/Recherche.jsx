@@ -17,7 +17,7 @@ const Recherche = () => {
   console.log(searchOn);
   return (
     <>
-      <div className={`recherche ${searchOn ? "active" : ""}`}>
+      <div className={`recherche ${searchOn ? "active" : ""} `}>
         <div className="close" onClick={() => setSearchOn(!searchOn)}>
           <AiFillCloseCircle />
         </div>

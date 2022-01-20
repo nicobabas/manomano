@@ -15,7 +15,7 @@ const App = () => {
   const [detection, setDetection] = useState([]);
   //const [tutoOn, setTutoOn] = useState(false);
   const [searchOn, setSearchOn] = useState(false);
-  const [webcamEnabled, setWebcamEnabled] = useState(true);
+  const [webcamEnabled, setWebcamEnabled] = useState(false);
   const FACING_MODE_USER = "user";
   const FACING_MODE_ENVIRONMENT = "environment";
   const [facingMode, setFacingMode] = useState(FACING_MODE_ENVIRONMENT);
@@ -42,7 +42,7 @@ const App = () => {
     //  Loop and detect hands
     setInterval(() => {
       detect(net);
-    }, 10);
+    }, 1000);
   };
 
   const detect = async (net) => {
@@ -98,7 +98,6 @@ const App = () => {
               <canvas ref={canvasRef} className="detection" />
             </>
           )}
-          <Categories />
           <Recherche />
           <Router>
             <Routes>
