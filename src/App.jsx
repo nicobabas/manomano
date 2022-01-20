@@ -1,7 +1,5 @@
 import "./App.css";
 import Recherche from "./components/Recherche/Recherche";
-import Categories from "./components/Categories/Categories";
-import Tutos from "./components/tuto/Tuto";
 import React, { useRef, useState, useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import * as tf from "@tensorflow/tfjs";
@@ -17,7 +15,7 @@ const App = () => {
   const [detection, setDetection] = useState([]);
   //const [tutoOn, setTutoOn] = useState(false);
   const [searchOn, setSearchOn] = useState(false);
-  const [webcamEnabled, setWebcamEnabled] = useState(false);
+  const [webcamEnabled, setWebcamEnabled] = useState(true);
   const FACING_MODE_USER = "user";
   const FACING_MODE_ENVIRONMENT = "environment";
   const [facingMode, setFacingMode] = useState(FACING_MODE_ENVIRONMENT);
@@ -100,7 +98,6 @@ const App = () => {
               <canvas ref={canvasRef} className="detection" />
             </>
           )}
-
           <Categories />
           <Recherche />
           <Router>
