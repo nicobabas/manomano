@@ -15,14 +15,18 @@ const Recherche = () => {
   const [search, setSearch] = useState("");
   const [catOn, setCatOn] = useState(false);
 
+  //setWebcamEnabled(false);
+
   useEffect(() => {
     detection.forEach((obj) => {
       if (obj.class === "person") {
-        setSearchOn(true);
-        //setWebcamEnabled(false);
         setSearch(obj.class === "person" && "personne");
       }
     });
+    if (search !== "") {
+      setSearchOn(true);
+      //setWebcamEnabled(false);
+    };
   });
 
   return (
@@ -31,8 +35,8 @@ const Recherche = () => {
         <div
           className="close"
           onClick={() => {
-            setSearchOn(!searchOn);
             setWebcamEnabled(false);
+            //setSearchOn(false);
           }}
         >
           <AiFillCloseCircle />
