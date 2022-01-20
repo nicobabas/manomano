@@ -10,12 +10,13 @@ import { drawRect } from "./components/Camera/utilities";
 import ProductListLavabo from "./components/ProductListLavabo/ProductListLavabo.jsx"
 import CameraContext from "./contexts/CameraContext";
 import HandleclickContext from "./contexts/HandleclickContext";
+import SliderSink from "./components/slider/SliderSink";
 
 const App = () => {
   const [detection, setDetection] = useState([]);
   //const [tutoOn, setTutoOn] = useState(false);
   const [searchOn, setSearchOn] = useState(false);
-  const [webcamEnabled, setWebcamEnabled] = useState(false);
+  const [webcamEnabled, setWebcamEnabled] = useState(true);
   const FACING_MODE_USER = "user";
   const FACING_MODE_ENVIRONMENT = "environment";
   const [facingMode, setFacingMode] = useState(FACING_MODE_ENVIRONMENT);
@@ -102,6 +103,7 @@ const App = () => {
           <Router>
             <Routes>
               <Route exact path="/products" element={<ProductListLavabo />} />
+              <Route exact path="/products/slider" element={<SliderSink />} />
             </Routes>
           </Router>
         </HandleclickContext.Provider>

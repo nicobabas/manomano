@@ -1,9 +1,10 @@
+import ProductListLavabo from "./ProductListLavabo/ProductListLavabo";
 
 export const filtres = [
   {
     name: "Vasque pour salle de bain",
     image: "https://cdn.manomano.com/images/images_products/6333895/T/14223639_1.jpg",
-    lien: "https://www.manomano.fr/vasque-pour-salle-de-bain-1520"
+    lien: '/products'
   },
   {
     name: "lavabo sur colonne",

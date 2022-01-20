@@ -30,24 +30,21 @@ padding: 16px;
 .productcard_price{
     font-size: 24px;
     margin-bottom: 50px;
-
 }
 .truck{
     color: #00a46e;
     width: 3vh;
     height: 2vh;
 }
-
 .productcard-text{
     margin-left: 8px;
 }
-
 .apercu-icon{
     color: #00a46e;
-    width: 10vh;
-    height: 4vh;
+    width: 3vh;
+    height: 3vh;
+    margin-left: 15px;
 }
-
 .productcard a {
     color: black;
     text-decoration: none;

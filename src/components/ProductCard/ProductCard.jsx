@@ -14,8 +14,8 @@ const Productcard = ({title, image, price, brand, link}) => {
             </div>
             <div className='productcard-text'>
                 <h1 className='productcard_title'>{title}</h1>
-                <div>
-                <a className='productcard_apercu' href='aperçu'>Voir un Apercu<FaRegEye className="apercu-icon"/> </a>
+                <div onClick='/products/slider'>
+                <a className='productcard_apercu' href='/products/slider'>Voir un Apercu<FaRegEye className="apercu-icon"/> </a>
                 </div>
                 <h3 className='productcard_price'>{price}</h3>
                 <p className='productcard_livraison'><RiTruckLine className='truck'/> Livraison gratuite</p>

@@ -5,6 +5,10 @@
   right: 10px;
   opacity: 0;
   z-index: 100;
+  visibility: hidden;
+}
+.tutos.active {
+  opacity: 1;
 }
 .tutos-image {
   width: 100%;
