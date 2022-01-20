@@ -1,3 +1,7 @@
 .App{
   overflow: hidden;
 }
+
+.active{
+  opacity: 1 !important;
+}

@@ -1,22 +1,23 @@
 import "./App.css";
 import Recherche from "./components/Recherche/Recherche";
 import Categories from "./components/Categories/Categories";
+import ProductList from "./components/ProductList/ProductList";
 import Tutos from "./components/tuto/Tuto";
-import React, { useRef, useState, useEffect, useCallback } from "react";
-import { BrowserRouter as Router, Routes } from "react-router-dom";
+import React, { useRef, useState, useEffect } from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import * as tf from "@tensorflow/tfjs";
 import * as cocossd from "@tensorflow-models/coco-ssd";
 import Webcam from "react-webcam";
 import "./components/Camera/camera.css";
 import { drawRect } from "./components/Camera/utilities";
-import { CameraContext } from "./contexts/CameraContext";
-import { HandleclickContext } from "./contexts/HandleclickContext";
+import CameraContext from "./contexts/CameraContext";
+import HandleclickContext from "./contexts/HandleclickContext";
 
 const App = () => {
   const [detection, setDetection] = useState([]);
-  const [tutoOn, setTutoOn] = useState(false);
+  //const [tutoOn, setTutoOn] = useState(false);
   const [searchOn, setSearchOn] = useState(false);
-  const [webcamEnabled, setWebcamEnabled] = useState(false);
+  const [webcamEnabled, setWebcamEnabled] = useState(true);
   const FACING_MODE_USER = "user";
   const FACING_MODE_ENVIRONMENT = "environment";
   const [facingMode, setFacingMode] = useState(FACING_MODE_ENVIRONMENT);
@@ -27,13 +28,13 @@ const App = () => {
     facingMode: FACING_MODE_USER,
   };
 
-  const handleClick = useCallback(() => {
-    setFacingMode((prevState) =>
-      prevState === FACING_MODE_USER
-        ? FACING_MODE_ENVIRONMENT
-        : FACING_MODE_USER
-    );
-  }, []);
+  // const handleClick = useCallback(() => {
+  //   setFacingMode((prevState) =>
+  //     prevState === FACING_MODE_USER
+  //       ? FACING_MODE_ENVIRONMENT
+  //       : FACING_MODE_USER
+  //   );
+  // }, []);
 
   // Main function
   // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -78,18 +79,13 @@ const App = () => {
   };
 
   useEffect(() => {
-    detection.forEach((obj) => obj.class === "remote" && setWebcamEnabled(false) && setSearchOn(true));
     runCoco();
-  }, [runCoco, detection]);
+  }, [runCoco]);
 
   return (
     <div className="App">
-      <CameraContext.Provider
-        value={{ detection, setDetection, webcamEnabled, setWebcamEnabled }}
-      >
-        <HandleclickContext.Provider
-          value={{ tutoOn, setTutoOn, searchOn, setSearchOn }}
-        >
+      <CameraContext.Provider value={{ detection, setDetection }}>
+        <HandleclickContext.Provider value={{ searchOn, setSearchOn }}>
           {webcamEnabled && (
             <>
               <Webcam
@@ -108,7 +104,9 @@ const App = () => {
           <Categories />
           <Recherche />
           <Router>
-            <Routes>{/* <Route exact path="/" element={<Home />} /> */}</Routes>
+            <Routes>
+              <Route exact path="/products" element={<ProductList />} />
+            </Routes>
           </Router>
         </HandleclickContext.Provider>
       </CameraContext.Provider>

@@ -1,3 +1,5 @@
 import { createContext } from 'react';
 
-export const HandleclickContext = createContext({});
+const HandleclickContext = createContext();
+
+export default HandleclickContext;
