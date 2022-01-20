@@ -1,8 +1,9 @@
 import "./App.css";
 import Recherche from "./components/Recherche/Recherche";
+import Categories from "./components/Categories/Categories";
 import React, { useRef, useState, useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import * as tf from "@tensorflow/tfjs";
+import * as tf from "@tensorflow-models/coco-ssd";
 import * as cocossd from "@tensorflow-models/coco-ssd";
 import Webcam from "react-webcam";
 import "./components/Camera/camera.css";
@@ -15,7 +16,7 @@ import HandleclickContext from "./contexts/HandleclickContext";
 const App = () => {
   const [detection, setDetection] = useState([]);
   const [searchOn, setSearchOn] = useState(false);
-  const [webcamEnabled, setWebcamEnabled] = useState(true);
+  const [webcamEnabled, setWebcamEnabled] = useState(false);
   const FACING_MODE_USER = "user";
   const FACING_MODE_ENVIRONMENT = "environment";
   const [facingMode, setFacingMode] = useState(FACING_MODE_ENVIRONMENT);
