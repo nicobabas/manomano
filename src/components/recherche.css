@@ -1,0 +1,25 @@
+.recherche{
+    width: 100%;
+    height: auto;
+
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    background: #204387;
+}
+.recherche_selection{
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    
+}
+.recherche_selection :first-child{
+    background-color: #06c0c4;
+}
+
+.recherche-button{
+    width: 90%;
+    height: 15vh;
+    border-radius: 10px;
+    margin: 5px;
+}

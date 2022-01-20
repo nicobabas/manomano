@@ -1,10 +1,15 @@
 import './App.css';
-import Header from './components/Header';
+import Recherche from './components/Recherche/Recherche';
+import Categories from './components/Categories/Categories';
+import Tutos from './components/tuto/Tuto';
 
 function App() {
   return (
     <div className="App">
-      <Header />
+      <Tutos />
+      <Categories />
+      <Recherche />
+
     </div>
   );
 }
