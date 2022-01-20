@@ -11,6 +11,8 @@ import Webcam from "react-webcam";
 import "./components/Camera/camera.css";
 import { drawRect } from "./components/Camera/utilities";
 import { CameraContext } from "./contexts/CameraContext";
+import ProductListLavabo from "./components/ProductListLavabo/ProductListLavabo.jsx"
+import ProductListMal from "./components/ProductListMal/ProductListMal.jsx"
 
 const App = () => {
   const [detection, setDetection] = useState([]);
@@ -98,6 +100,8 @@ const App = () => {
       <canvas ref={canvasRef} className="detection" />
       </>
       )}
+      <ProductListLavabo  />
+      <ProductListMal />
       <Tutos />
       <Categories />
       <Recherche />
