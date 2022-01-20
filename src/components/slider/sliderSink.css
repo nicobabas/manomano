@@ -1,0 +1,32 @@
+.SliderSink {
+  height: 100vh;
+  background-image: url('../../../public/assets/sdb.png');
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+.SliderSink h2 {
+  text-align: center;
+  margin: 0;
+}
+.swiper {
+  width: 100%;
+  height: 100%;
+}
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+  margin-left: 2px;
+  margin-top: -20px;
+}

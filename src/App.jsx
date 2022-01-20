@@ -83,32 +83,31 @@ const App = () => {
   return (
     <div className="App">
 
-    <CameraContext.Provider value={{ detection, setDetection, webcamEnabled, setWebcamEnabled }}>
-      {webcamEnabled && (
-        <>
-      <Webcam
-        ref={webcamRef}
-        muted={true}
-        className="webcamCapture"
-        videoConstraints={{
-          ...videoConstraints,
-          facingMode,
-        }}
-      />
-      <canvas ref={canvasRef} className="detection" />
-      </>
-      )}
-      <Tutos />
-      <Categories />
-      <Recherche />
-      <Router>
-        <Routes>
-          {/* <Route exact path="/" element={<Home />} /> */}
-        </Routes>
-      </Router>
-    </CameraContext.Provider>
-
-</div>
+      <CameraContext.Provider value={{ detection, setDetection, webcamEnabled, setWebcamEnabled }}>
+        {webcamEnabled && (
+          <>
+        <Webcam
+          ref={webcamRef}
+          muted={true}
+          className="webcamCapture"
+          videoConstraints={{
+            ...videoConstraints,
+            facingMode,
+          }}
+        />
+        <canvas ref={canvasRef} className="detection" />
+        </>
+        )}
+        <Tutos />
+        <Categories />
+        <Recherche />
+        <Router>
+          <Routes>
+            {/* <Route exact path="/" element={<Home />} /> */}
+          </Routes>
+        </Router>
+      </CameraContext.Provider>
+    </div>
   );
 };
 
