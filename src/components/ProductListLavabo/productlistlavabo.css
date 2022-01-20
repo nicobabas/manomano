@@ -1,0 +1,8 @@
+.productListlavabo{
+    display: flex;
+    justify-content: center;
+    padding:16px;
+}
+.productListlavabo_div{
+    margin-bottom: 16px;
+}

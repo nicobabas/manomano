@@ -98,6 +98,7 @@ const App = () => {
               <canvas ref={canvasRef} className="detection" />
             </>
           )}
+          <Categories />
           <Recherche />
           <Router>
             <Routes>
