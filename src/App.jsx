@@ -1,3 +1,5 @@
+
+import './App.css';
 // Import dependencies
 import React, { useRef, useState, useEffect, useCallback } from "react";
 import { BrowserRouter as Router, Routes } from "react-router-dom";
