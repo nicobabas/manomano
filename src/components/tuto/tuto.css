@@ -1,23 +1,26 @@
-.tutos_selection{
-    display: flex;
-    justify-content:flex-end;
-    flex-direction: column;
-    width: 25%;
-    margin-left: 65vw;
-    margin-top: 10px;
+.tutos {
+    transition: all 0.3s;
+  width: 30vw;
+  height: 100vh;
+  position: absolute;
+  right: -120px;
 }
-.tutos-image{
-    width: 100%;
-    border-radius: 10%;
-}
-.tutos_presentation{
-    margin-bottom: 1rem;
-    border: solid rgba(0,0,0,0.2) 1px;
-    border-radius: 10px;
-    padding: 5px;
 
+.tutos.active {
+  right: 0;
 }
-.tutos_h3{
-    font-size: 0.8rem;
-    color: #0C193A;
+
+.tutos-image {
+  width: 100%;
+  border-radius: 10%;
+}
+.tutos_presentation {
+  margin-bottom: 1rem;
+  border: solid rgba(0, 0, 0, 0.2) 1px;
+  border-radius: 10px;
+  padding: 5px;
+}
+.tutos_h3 {
+  font-size: 0.8rem;
+  color: #0c193a;
 }

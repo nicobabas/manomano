@@ -1,8 +1,7 @@
-
-import './App.css';
-import Recherche from './components/Recherche/Recherche';
-import Categories from './components/Categories/Categories';
-import Tutos from './components/tuto/Tuto';
+import "./App.css";
+import Recherche from "./components/Recherche/Recherche";
+import Categories from "./components/Categories/Categories";
+import Tutos from "./components/tuto/Tuto";
 import React, { useRef, useState, useEffect, useCallback } from "react";
 import { BrowserRouter as Router, Routes } from "react-router-dom";
 import * as tf from "@tensorflow/tfjs";
@@ -11,10 +10,13 @@ import Webcam from "react-webcam";
 import "./components/Camera/camera.css";
 import { drawRect } from "./components/Camera/utilities";
 import { CameraContext } from "./contexts/CameraContext";
+import { HandleclickContext } from "./contexts/HandleclickContext";
 
 const App = () => {
   const [detection, setDetection] = useState([]);
-  const [webcamEnabled, setWebcamEnabled] = useState(true);
+  const [tutoOn, setTutoOn] = useState(false);
+  const [searchOn, setSearchOn] = useState(false);
+  const [webcamEnabled, setWebcamEnabled] = useState(false);
   const FACING_MODE_USER = "user";
   const FACING_MODE_ENVIRONMENT = "environment";
   const [facingMode, setFacingMode] = useState(FACING_MODE_ENVIRONMENT);
@@ -67,7 +69,7 @@ const App = () => {
       // Make Detections
       const obj = await net.detect(video);
       setDetection(obj);
-      console.log('detection', detection);
+      console.log("detection", detection);
 
       // Draw mesh
       const ctx = canvasRef.current.getContext("2d");
@@ -76,39 +78,41 @@ const App = () => {
   };
 
   useEffect(() => {
-    detection.forEach(obj => obj.class === "sink" && setWebcamEnabled(false))
+    detection.forEach((obj) => obj.class === "remote" && setWebcamEnabled(false) && setSearchOn(true));
     runCoco();
   }, [runCoco, detection]);
 
   return (
     <div className="App">
-
-    <CameraContext.Provider value={{ detection, setDetection, webcamEnabled, setWebcamEnabled }}>
-      {webcamEnabled && (
-        <>
-      <Webcam
-        ref={webcamRef}
-        muted={true}
-        className="webcamCapture"
-        videoConstraints={{
-          ...videoConstraints,
-          facingMode,
-        }}
-      />
-      <canvas ref={canvasRef} className="detection" />
-      </>
-      )}
-      <Tutos />
-      <Categories />
-      <Recherche />
-      <Router>
-        <Routes>
-          {/* <Route exact path="/" element={<Home />} /> */}
-        </Routes>
-      </Router>
-    </CameraContext.Provider>
-
-</div>
+      <CameraContext.Provider
+        value={{ detection, setDetection, webcamEnabled, setWebcamEnabled }}
+      >
+        <HandleclickContext.Provider
+          value={{ tutoOn, setTutoOn, searchOn, setSearchOn }}
+        >
+          {webcamEnabled && (
+            <>
+              <Webcam
+                ref={webcamRef}
+                muted={true}
+                className="webcamCapture"
+                videoConstraints={{
+                  ...videoConstraints,
+                  facingMode,
+                }}
+              />
+              <canvas ref={canvasRef} className="detection" />
+            </>
+          )}
+          <Tutos />
+          <Categories />
+          <Recherche />
+          <Router>
+            <Routes>{/* <Route exact path="/" element={<Home />} /> */}</Routes>
+          </Router>
+        </HandleclickContext.Provider>
+      </CameraContext.Provider>
+    </div>
   );
 };
 
