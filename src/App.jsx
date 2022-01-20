@@ -16,7 +16,7 @@ const App = () => {
   const [detection, setDetection] = useState([]);
   //const [tutoOn, setTutoOn] = useState(false);
   const [searchOn, setSearchOn] = useState(false);
-  const [webcamEnabled, setWebcamEnabled] = useState(true);
+  const [webcamEnabled, setWebcamEnabled] = useState(false);
   const FACING_MODE_USER = "user";
   const FACING_MODE_ENVIRONMENT = "environment";
   const [facingMode, setFacingMode] = useState(FACING_MODE_ENVIRONMENT);
@@ -83,6 +83,7 @@ const App = () => {
 
   return (
     <div className="App">
+      <div className="test">
       <CameraContext.Provider value={{ detection, setDetection }}>
         <HandleclickContext.Provider value={{ searchOn, setSearchOn }}>
           {webcamEnabled && (
@@ -108,6 +109,7 @@ const App = () => {
           </Router>
         </HandleclickContext.Provider>
       </CameraContext.Provider>
+      </div>
     </div>
   );
 };
