@@ -1,0 +1,34 @@
+.recherche{
+    height: auto;
+    color: #204387;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.recherche_selection{
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;    
+}
+
+.recherche_div{
+    height: 78vh;
+}
+
+.recherche_h2{
+    font-size: 1.1rem;
+}
+.recherche_selection :first-child{
+    background-color: #03ADB1;
+}
+
+.recherche-button{
+    width: 60%;
+    height: 12vh;
+    border: 3px solid #03ADB1;
+    border-radius: 10px;
+    margin: 5px;
+    color: #204387;
+    font-size: 0.9rem;
+}

@@ -1,6 +1,8 @@
 
 import './App.css';
-// Import dependencies
+import Recherche from './components/Recherche/Recherche';
+import Categories from './components/Categories/Categories';
+import Tutos from './components/tuto/Tuto';
 import React, { useRef, useState, useEffect, useCallback } from "react";
 import { BrowserRouter as Router, Routes } from "react-router-dom";
 import * as tf from "@tensorflow/tfjs";
@@ -79,6 +81,8 @@ const App = () => {
   }, [runCoco, detection]);
 
   return (
+    <div className="App">
+
     <CameraContext.Provider value={{ detection, setDetection, webcamEnabled, setWebcamEnabled }}>
       {webcamEnabled && (
         <>
@@ -94,12 +98,17 @@ const App = () => {
       <canvas ref={canvasRef} className="detection" />
       </>
       )}
+      <Tutos />
+      <Categories />
+      <Recherche />
       <Router>
         <Routes>
           {/* <Route exact path="/" element={<Home />} /> */}
         </Routes>
       </Router>
     </CameraContext.Provider>
+
+</div>
   );
 };
 

@@ -1,0 +1,15 @@
+.categories_selection{
+    display: flex;
+    justify-content:flex-end;
+    flex-direction: column;
+    width: 25%;
+    margin-left: 65vw;
+}
+.categories-image{
+    width: 100%;
+}
+
+.categories_h3{
+    font-size: 1rem;
+    color: #0C193A;
+}
