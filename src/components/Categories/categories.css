@@ -1,10 +1,21 @@
-.categories_selection{
+.categories{
     display: flex;
+    transition: all 0.3s;
+    visibility: hidden;
+    opacity: 0;
     justify-content:flex-end;
     flex-direction: column;
     width: 25%;
-    margin-left: 65vw;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    right: -200px;
 }
+
+.categories.active{
+    right: 0;
+}
+
 .categories-image{
     width: 100%;
 }
