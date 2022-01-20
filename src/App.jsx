@@ -14,7 +14,7 @@ import { CameraContext } from "./contexts/CameraContext";
 
 const App = () => {
   const [detection, setDetection] = useState([]);
-  const [webcamEnabled, setWebcamEnabled] = useState(true);
+  const [webcamEnabled, setWebcamEnabled] = useState(false);
   const FACING_MODE_USER = "user";
   const FACING_MODE_ENVIRONMENT = "environment";
   const [facingMode, setFacingMode] = useState(FACING_MODE_ENVIRONMENT);
