@@ -1,7 +1,5 @@
 import "./App.css";
 import Recherche from "./components/Recherche/Recherche";
-import Categories from "./components/Categories/Categories";
-import Tutos from "./components/tuto/Tuto";
 import React, { useRef, useState, useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import * as tf from "@tensorflow/tfjs";
@@ -100,8 +98,6 @@ const App = () => {
               <canvas ref={canvasRef} className="detection" />
             </>
           )}
-          <Tutos />
-          <Categories />
           <Recherche />
           <Router>
             <Routes>
