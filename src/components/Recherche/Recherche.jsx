@@ -64,7 +64,11 @@ const Recherche = () => {
         setSearchOn={setSearchOn}
         searchOn={searchOn}
       />
-      <Categories catOn={catOn} />
+      <Categories 
+        catOn={catOn} 
+        setCatOn={setCatOn}
+        setSearchOn={setSearchOn}
+        searchOn={searchOn}/>
     </>
   );
 };

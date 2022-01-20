@@ -1,9 +1,13 @@
 import "./categories.css";
 import { filtres } from "../products.js";
 
-const Categories = () => {
+const Categories = ({ setCatOn, catOn }) => {
   return (
-    <div className="categories">
+    <div className={`categiries ${catOn && "active"}`} onClick={() => {
+        setTimeout(() => {
+            setCatOn(!catOn);
+        }, 100);
+      }}>
       {filtres.map((filtre) => (
         <div className="categories_presentation">
           <h3 className="categories_h3">{filtre.name}</h3>
