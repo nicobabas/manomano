@@ -3,7 +3,7 @@ import { filtres } from "../products.js";
 
 const Categories = ({ setCatOn, catOn }) => {
   return (
-    <div className={`categiries ${catOn && "active"}`} onClick={() => {
+    <div className={`categories ${catOn && "active"}`} onClick={() => {
         setTimeout(() => {
             setCatOn(!catOn);
         }, 100);

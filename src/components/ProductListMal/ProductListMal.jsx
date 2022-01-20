@@ -1,9 +1,19 @@
 import './productlistmal.css';
 import ProductCard from '../ProductCard/ProductCard.jsx';
-import {elementsMal} from '../products.js';
+import { elementsMal } from '../products.js';
+import { useContext, useEffect } from "react";
+import HandleclickContext from "../../contexts/HandleclickContext";
+import CameraOnContext from "../../contexts/CameraOnContext";
 
 const ProductListMal = () => {
-   
+    const { setSearchOn, searchOn } = useContext(HandleclickContext);
+    const { setWebcamEnabled } = useContext(CameraOnContext);
+
+    useEffect(() => {
+        setSearchOn(false);
+        setWebcamEnabled(false)
+      });
+
     return(
        <div className='productListMal'>
           

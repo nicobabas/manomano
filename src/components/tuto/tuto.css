@@ -1,11 +1,12 @@
 .tutos {
-    transition: all 0.3s;
+  transition: all 0.3s;
   width: 30vw;
   height: 100vh;
   position: absolute;
   right: 0;
   opacity: 0;
   z-index: 80;
+  visibility: hidden;
 }
 
 .tutos.active{
