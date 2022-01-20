@@ -7,8 +7,9 @@ import * as cocossd from "@tensorflow-models/coco-ssd";
 import Webcam from "react-webcam";
 import "./components/Camera/camera.css";
 import { drawRect } from "./components/Camera/utilities";
-import ProductListLavabo from "./components/ProductListLavabo/ProductListLavabo.jsx"
+import ProductListLavabo from "./components/ProductListLavabo/ProductListLavabo.jsx";
 import CameraContext from "./contexts/CameraContext";
+import CameraOnContext from "./contexts/CameraOnContext";
 import HandleclickContext from "./contexts/HandleclickContext";
 
 const App = () => {
@@ -83,28 +84,30 @@ const App = () => {
   return (
     <div className="App">
       <CameraContext.Provider value={{ detection, setDetection }}>
-        <HandleclickContext.Provider value={{ searchOn, setSearchOn }}>
-          {webcamEnabled && (
-            <>
-              <Webcam
-                ref={webcamRef}
-                muted={true}
-                className="webcamCapture"
-                videoConstraints={{
-                  ...videoConstraints,
-                  facingMode,
-                }}
-              />
-              <canvas ref={canvasRef} className="detection" />
-            </>
-          )}
-          <Recherche />
-          <Router>
-            <Routes>
-              <Route exact path="/products" element={<ProductListLavabo />} />
-            </Routes>
-          </Router>
-        </HandleclickContext.Provider>
+        <CameraOnContext.Provider value={{ webcamEnabled, setWebcamEnabled }}>
+          <HandleclickContext.Provider value={{ searchOn, setSearchOn }}>
+            {webcamEnabled && (
+              <>
+                <Webcam
+                  ref={webcamRef}
+                  muted={true}
+                  className="webcamCapture"
+                  videoConstraints={{
+                    ...videoConstraints,
+                    facingMode,
+                  }}
+                />
+                <canvas ref={canvasRef} className="detection" />
+              </>
+            )}
+            <Recherche />
+            <Router>
+              <Routes>
+                <Route exact path="/products" element={<ProductListLavabo />} />
+              </Routes>
+            </Router>
+          </HandleclickContext.Provider>
+        </CameraOnContext.Provider>
       </CameraContext.Provider>
     </div>
   );

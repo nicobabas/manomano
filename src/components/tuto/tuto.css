@@ -3,9 +3,9 @@
   width: 30vw;
   height: 100vh;
   position: absolute;
-  right: -120px;
+  right: 20px;
   opacity: 0;
-  z-index: 100;
+  z-index: 80;
 }
 
 .tutos.active{
