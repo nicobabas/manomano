@@ -1,25 +1,25 @@
 import './productcard.css';
 import { FaRegEye } from 'react-icons/fa';
+import { RiTruckLine } from 'react-icons/ri';
 
-const Productcard = ({title, image, price, brand, delivery}) => {
+const Productcard = ({title, image, price, brand, link}) => {
    
     return(
-       <div className='productcard'>
+        <div className='productcard'>
            <div className='productcard_selection'>
-           
-               <img src={image} alt={title} />
-               <div>
-                <h1>{title}</h1>
-                <div className='button'>
-                    <h3>{price}</h3>
-                 <a href='aperçu'><FaRegEye /> Apercu</a>
+               <a href={link}>
+               <img className='productcard_image' src={image} alt={title} />
+               </a>
+               <img className='productcard_brand' src={brand} alt="brand"/>
+            </div>
+            <div className='productcard-text'>
+                <h1 className='productcard_title'>{title}</h1>
+                <div>
+                <a className='productcard_apercu' href='aperçu'>Voir un Apercu<FaRegEye className="apercu-icon"/> </a>
                 </div>
-               </div>
-           </div>
-           <div>
-               <img src={brand} alt="brand"/>
-               <p>{delivery}</p>
-           </div>
+                <h3 className='productcard_price'>{price}</h3>
+                <p className='productcard_livraison'><RiTruckLine className='truck'/> Livraison gratuite</p>
+            </div>
         </div>
     );
 }

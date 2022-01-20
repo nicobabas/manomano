@@ -17,7 +17,7 @@ const App = () => {
   const [detection, setDetection] = useState([]);
   //const [tutoOn, setTutoOn] = useState(false);
   const [searchOn, setSearchOn] = useState(false);
-  const [webcamEnabled, setWebcamEnabled] = useState(true);
+  const [webcamEnabled, setWebcamEnabled] = useState(false);
   const FACING_MODE_USER = "user";
   const FACING_MODE_ENVIRONMENT = "environment";
   const [facingMode, setFacingMode] = useState(FACING_MODE_ENVIRONMENT);
@@ -100,7 +100,7 @@ const App = () => {
               <canvas ref={canvasRef} className="detection" />
             </>
           )}
-          <Tutos />
+
           <Categories />
           <Recherche />
           <Router>
