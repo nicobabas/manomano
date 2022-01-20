@@ -7,14 +7,13 @@ import * as cocossd from "@tensorflow-models/coco-ssd";
 import Webcam from "react-webcam";
 import "./components/Camera/camera.css";
 import { drawRect } from "./components/Camera/utilities";
-import ProductListLavabo from "./components/ProductListLavabo/ProductListLavabo.jsx";
+import ProductListLavabo from "./components/ProductListLavabo/ProductListLavabo.jsx"
 import CameraContext from "./contexts/CameraContext";
 import CameraOnContext from "./contexts/CameraOnContext";
 import HandleclickContext from "./contexts/HandleclickContext";
 
 const App = () => {
   const [detection, setDetection] = useState([]);
-  //const [tutoOn, setTutoOn] = useState(false);
   const [searchOn, setSearchOn] = useState(false);
   const [webcamEnabled, setWebcamEnabled] = useState(true);
   const FACING_MODE_USER = "user";
@@ -43,35 +42,28 @@ const App = () => {
     //  Loop and detect hands
     setInterval(() => {
       detect(net);
-    }, 10);
+    }, 1000);
   };
 
   const detect = async (net) => {
-    // Check data is available
     if (
       typeof webcamRef.current !== "undefined" &&
       webcamRef.current !== null &&
       webcamRef.current.video.readyState === 4
     ) {
-      // Get Video Properties
       const video = webcamRef.current.video;
       const videoWidth = webcamRef.current.video.videoWidth;
       const videoHeight = webcamRef.current.video.videoHeight;
 
-      // Set video width
       webcamRef.current.video.width = videoWidth;
       webcamRef.current.video.height = videoHeight;
 
-      // Set canvas height and width
       canvasRef.current.width = videoWidth;
       canvasRef.current.height = videoHeight;
 
-      // Make Detections
       const obj = await net.detect(video);
       setDetection(obj);
-      console.log("detection", detection);
 
-      // Draw mesh
       const ctx = canvasRef.current.getContext("2d");
       drawRect(obj, ctx);
     }
@@ -84,29 +76,29 @@ const App = () => {
   return (
     <div className="App">
       <CameraContext.Provider value={{ detection, setDetection }}>
-        <CameraOnContext.Provider value={{ webcamEnabled, setWebcamEnabled }}>
-          <HandleclickContext.Provider value={{ searchOn, setSearchOn }}>
-            {webcamEnabled && (
-              <>
-                <Webcam
-                  ref={webcamRef}
-                  muted={true}
-                  className="webcamCapture"
-                  videoConstraints={{
-                    ...videoConstraints,
-                    facingMode,
-                  }}
-                />
-                <canvas ref={canvasRef} className="detection" />
-              </>
-            )}
-            <Recherche />
-            <Router>
-              <Routes>
-                <Route exact path="/products" element={<ProductListLavabo />} />
-              </Routes>
-            </Router>
-          </HandleclickContext.Provider>
+      <CameraOnContext.Provider value={{ detection, setDetection }}>
+        <HandleclickContext.Provider value={{ searchOn, setSearchOn }}>
+          {webcamEnabled && (
+            <>
+              <Webcam
+                ref={webcamRef}
+                muted={true}
+                className="webcamCapture"
+                videoConstraints={{
+                  ...videoConstraints,
+                  facingMode,
+                }}
+              />
+              <canvas ref={canvasRef} className="detection" />
+            </>
+          )}
+          <Recherche />
+          <Router>
+            <Routes>
+              <Route exact path="/products" element={<ProductListLavabo />} />
+            </Routes>
+          </Router>
+        </HandleclickContext.Provider>
         </CameraOnContext.Provider>
       </CameraContext.Provider>
     </div>

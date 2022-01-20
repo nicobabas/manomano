@@ -19,7 +19,7 @@ const Recherche = () => {
     detection.forEach((obj) => {
       if (obj.class === "person") {
         setSearchOn(true);
-        setWebcamEnabled(false);
+        //setWebcamEnabled(false);
         setSearch(obj.class === "person" && "personne");
       }
     });
