@@ -1,0 +1,28 @@
+.tutos {
+    transition: all 0.3s;
+  width: 30vw;
+  height: 100vh;
+  position: absolute;
+  right: -120px;
+  opacity: 0;
+  z-index: 100;
+}
+
+.tutos.active{
+    right: 0;
+}
+
+.tutos-image {
+  width: 100%;
+  border-radius: 10%;
+}
+.tutos_presentation {
+  margin-bottom: 1rem;
+  border: solid rgba(0, 0, 0, 0.2) 1px;
+  border-radius: 10px;
+  padding: 5px;
+}
+.tutos_h3 {
+  font-size: 0.8rem;
+  color: #0c193a;
+}

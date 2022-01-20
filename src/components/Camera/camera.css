@@ -1,0 +1,20 @@
+.webcamCapture {
+  position: fixed;
+  height: auto !important;
+  width: 100% !important;
+  top: 0;
+  left: 0;
+  margin: 0 auto !important;
+  z-index: 8;
+}
+.detection {
+  position: absolute;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+  text-align: center;
+  z-index: 8;
+  width: 640px;
+  height: 480px;
+}
