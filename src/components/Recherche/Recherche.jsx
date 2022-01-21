@@ -11,10 +11,12 @@ const Recherche = () => {
   const { setSearchOn, searchOn } = useContext(HandleclickContext);
   const [tutosOn, setTutosOn] = useState(false);
   const [catOn, setCatOn] = useState(false);
+
   useEffect(() => {
     detection.forEach((obj) => obj.class === "person" && setSearchOn(true));
   });
   console.log(searchOn);
+  
   return (
     <>
       <div className={`recherche ${searchOn ? "active" : ""} `}>

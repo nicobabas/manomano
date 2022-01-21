@@ -7,6 +7,7 @@ border: 1px solid #ecedf0;
 border-radius: 4px;
 margin: 10px;
 padding: 16px;
+background: #ffff;
 }
 .productcard_selection {
   display: flex;
