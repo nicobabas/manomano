@@ -13,7 +13,7 @@ const Recherche = () => {
   const [catOn, setCatOn] = useState(false);
 
   useEffect(() => {
-    detection.forEach((obj) => obj.class === "person" && setSearchOn(true));
+    detection.forEach((obj) => obj.class === "cell phone" && setSearchOn(true));
   });
   console.log(searchOn);
   
